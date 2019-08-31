@@ -9,10 +9,14 @@ int main()
 {
     string alfabeto="abcdefghijklmnopqrstuvwxyz0123456789 ";
     string mensaje;
+     string copia;
     ifstream entrada ( "textoPlano.txt" );
     ofstream salida ("textoCifrado.txt");
-    while (getline (entrada,mensaje)) {
-         int tam=mensaje.length();
+    while (getline (entrada,copia)) {
+      string temp=copia;
+      mensaje.append(copia);
+    }
+       int tam=mensaje.length();
     string posi[36]={"a"};///
     string clave="";
     srand(time(NULL));
@@ -33,7 +37,6 @@ int main()
    cout<<"mensaje "<<mensaje<<endl;
 
         salida << mensaje << endl;
-    }
     salida.close();
     entrada.close();
        return 0;
