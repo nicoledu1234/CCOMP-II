@@ -2,53 +2,108 @@
 #include <string>
 using namespace std;
 bool  verificarNumero(string numRomano){
-    int cant1=0;
-    int cant5=0;
-    int cant10=0;
-    int cant50=0;
-    int cant100=0;
-    int cant500=0;
-    int cant1000=0;
-    for (int i = 0; i <numRomano.length() ; ++i) {
-        if (numRomano[i]=='I') {
-            cant1++;
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if(numRomano[i]=='I'){
+            if ((numRomano[i+1]=='I')&&(numRomano[i+2]=='I')&&(numRomano[i+3]=='I')){
+                cout<<"Numero invalido "<<endl;
+                return false;
+            }
         }
-        else if (numRomano[i]=='V') {
-            cant5++;
-        }
-        else if (numRomano[i]=='X') {
-            cant10++;
-        }
-        else if (numRomano[i]=='L') {
-            cant50++;
-        }
-        else if (numRomano[i]=='C') {
-            cant100++;
-        }
-        else if (numRomano[i]=='D') {
-            cant500++;
-        }
-        else if (numRomano[i]=='M') {
-            cant1000++;
-        }
-    }
-    if(cant1>3||cant10>3|| cant100>3|| cant1000>3){
-        cout<<"Numero invalido "<<endl;
-        return false;
-    }
-    if(cant5>=2||cant50>=2|| cant500>=2){
-        cout<<"Numero invalido "<<endl;
-        return false;
     }
     for (int i = 0; i < numRomano.length() ; ++i) {
-       if(numRomano[i]=='I'){
-           if (numRomano[i+1]=='L'||numRomano[i+1]=='C'||numRomano[i+1]=='D'||numRomano[i+1]=='M'){
-            cout<<"Numero invalido "<<endl;
-            return false;
-           }
-       }
+        if(numRomano[i]=='X'){
+            if ((numRomano[i+1]=='X')&&(numRomano[i+2]=='X')&&(numRomano[i+3]=='X')){
+                cout<<"Numero invalido "<<endl;
+                return false;
+            }
+        }
     }
-
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if(numRomano[i]=='M'){
+            if ((numRomano[i+1]=='M')&&(numRomano[i+2]=='M')&&(numRomano[i+3]=='M')){
+                cout<<"Numero invalido "<<endl;
+                return false;
+            }
+        }
+    }
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if(numRomano[i]=='C'){
+            if ((numRomano[i+1]=='C')&&(numRomano[i+2]=='C')&&(numRomano[i+3]=='C')){
+                cout<<"Numero invalido "<<endl;
+                return false;
+            }
+        }
+    }
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if(numRomano[i]=='V'){
+            if ((numRomano[i+1]=='V')){
+                cout<<"Numero invalido "<<endl;
+                return false;
+            }
+        }
+    }
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if(numRomano[i]=='L'){
+            if ((numRomano[i+1]=='L')){
+                cout<<"Numero invalido "<<endl;
+                return false;
+            }
+        }
+    }
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if(numRomano[i]=='D'){
+            if ((numRomano[i+1]=='D')){
+                cout<<"Numero invalido "<<endl;
+                return false;
+            }
+        }
+    }
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if(numRomano[i]=='I'){
+            if (numRomano[i+1]=='L'||numRomano[i+1]=='C'||numRomano[i+1]=='D'||numRomano[i+1]=='M'){
+                cout<<"Numero invalido "<<endl;
+                return false;
+            }
+        }
+    }
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if((numRomano[i]=='I')&&(numRomano[i+1]!='I')){
+            if (numRomano[i+2]=='I'){
+                cout<<"Numero invalido 1"<<endl;
+                return false;
+            }
+        }
+    }
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if((numRomano[i]=='X')){
+            if((numRomano[i+1]=='V'||numRomano[i+1]=='L'||numRomano[i+1]=='C'||numRomano[i+1]=='D'||numRomano[i+1]=='M')){
+                if (numRomano[i+2]=='X'){
+                    cout<<"Numero invalido 2 "<<endl;
+                    return false;
+                }
+            }
+        }
+    }
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if((numRomano[i]=='I')){
+            if (numRomano[i+1]=='X'){
+                if((numRomano[i+2]=='I'||numRomano[i+2]=='X'||numRomano[i+2]=='V'||numRomano[i+2]=='L'||numRomano[i+2]=='C'||numRomano[i+2]=='D'||numRomano[i+2]=='M')){
+                    cout<<"Numero invalido 2 "<<endl;
+                    return false;
+                }
+            }
+        }
+    }
+    for (int i = 0; i < numRomano.length() ; ++i) {
+        if((numRomano[i]=='M')){
+            if((numRomano[i+1]=='V'||numRomano[i+1]=='L'||numRomano[i+1]=='I'||numRomano[i+1]=='D'||numRomano[i+1]=='M')){
+                if (numRomano[i+2]=='M'){
+                    cout<<"Numero invalido "<<endl;
+                    return false;
+                }
+            }
+        }
+    }
     return true;
 }
 
@@ -62,7 +117,7 @@ int buscador(string simbolo, char c){
 void convertirADecimal (string numRomano){
     if(verificarNumero(numRomano)==0){}
     else{
-            int valor[] = {1000, 500, 100, 50, 10, 5, 1};
+        int valor[] = {1000, 500, 100, 50, 10, 5, 1};
         string simbolo = "MDCLXVI";
         char c;
         int resultado=0;
@@ -86,7 +141,7 @@ void convertirADecimal (string numRomano){
             }
             i++;
         }
-         cout<<resultado<<endl;
+        cout<<resultado<<endl;
     }
 }
 
